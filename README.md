@@ -1,3 +1,2 @@
-# Welcome to your Lovable project
+# MediTrack Your AI Health Companion
 
-TODO: Document your project here
