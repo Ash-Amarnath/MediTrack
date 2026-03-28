@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 200 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 15% 15%;
+
+    --primary: 153 45% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 20% 95%;
+    --secondary-foreground: 153 45% 25%;
+
+    --muted: 150 10% 94%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 150 30% 92%;
+    --accent-foreground: 153 45% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 15% 88%;
+    --input: 150 15% 88%;
+    --ring: 153 45% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* MediTrack custom tokens */
+    --meditrack-green: 153 45% 30%;
+    --meditrack-green-light: 150 30% 92%;
+    --meditrack-green-muted: 150 20% 96%;
+    --meditrack-text: 200 15% 15%;
+    --meditrack-text-muted: 200 10% 45%;
+    --meditrack-upload-bg: 150 25% 96%;
+    --meditrack-section-bar: 153 45% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .meditrack-card {
+    @apply bg-card rounded-xl border border-border p-4 transition-shadow duration-200;
+  }
+  .meditrack-card:hover {
+    box-shadow: 0 2px 12px hsl(var(--meditrack-green) / 0.08);
+  }
+  .meditrack-card:active {
+    transform: scale(0.98);
+  }
+
+  .meditrack-section-indicator {
+    @apply w-1 rounded-full;
+    background: hsl(var(--meditrack-section-bar));
+  }
+
+  .meditrack-upload-zone {
+    @apply rounded-xl border-2 border-dashed flex flex-col items-center justify-center p-8 transition-colors duration-200 cursor-pointer;
+    border-color: hsl(var(--border));
+    background: hsl(var(--meditrack-upload-bg));
+  }
+  .meditrack-upload-zone:hover {
+    border-color: hsl(var(--meditrack-green));
+    background: hsl(var(--meditrack-green-light));
+  }
+
+  .meditrack-container {
+    @apply min-h-screen bg-background;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out both;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
